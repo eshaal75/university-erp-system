@@ -1,17 +1,21 @@
 # University ERP System
 
-My first GitHub project.
+This is my first C++ project uploaded on GitHub.
 
-## Features Planned
-- Student Management
-- Teacher Management
-- Course Management
-- Attendance Management
-- Result Management
+## Current Features
+- Main Menu
+- Add Student
+- View Students (basic)
 
-## Technologies
-- C++
-- Object Oriented Programming
+## Learning Goals
+- C++ OOP
+- File handling
+- Real ERP system design
+
+## Upcoming Features
+- Multiple students storage
+- Teacher management
+- Course management
 
 ## Author
 Eshaal Nazir
