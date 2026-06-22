@@ -20,6 +20,12 @@ int main()
     string teacherDepartments[SIZE];
     int teacherCount = 0;
 
+    // Course Data
+    string courseCodes[SIZE];
+    string courseNames[SIZE];
+    int creditHours[SIZE];
+    int courseCount = 0;
+
     int choice;
 
     while(true)
@@ -32,7 +38,9 @@ int main()
         cout << "3. Search Student" << endl;
         cout << "4. Add Teacher" << endl;
         cout << "5. View Teachers" << endl;
-        cout << "6. Exit" << endl;
+        cout << "6. Add Course" << endl;
+        cout << "7. View Courses" << endl;
+        cout << "8. Exit" << endl;
 
         cout << "\nEnter Choice: ";
         cin >> choice;
@@ -40,30 +48,23 @@ int main()
         // Add Student
         if(choice == 1)
         {
-            if(count < SIZE)
-            {
-                cout << "\nEnter Student ID: ";
-                cin >> ids[count];
+            cout << "\nEnter Student ID: ";
+            cin >> ids[count];
 
-                cin.ignore();
+            cin.ignore();
 
-                cout << "Enter Student Name: ";
-                getline(cin, names[count]);
+            cout << "Enter Student Name: ";
+            getline(cin, names[count]);
 
-                cout << "Enter Department: ";
-                getline(cin, departments[count]);
+            cout << "Enter Department: ";
+            getline(cin, departments[count]);
 
-                cout << "Enter Semester: ";
-                cin >> semesters[count];
+            cout << "Enter Semester: ";
+            cin >> semesters[count];
 
-                count++;
+            count++;
 
-                cout << "\nStudent Added Successfully!" << endl;
-            }
-            else
-            {
-                cout << "\nStudent Storage Full!" << endl;
-            }
+            cout << "\nStudent Added Successfully!" << endl;
         }
 
         // View Students
@@ -75,8 +76,6 @@ int main()
             }
             else
             {
-                cout << "\n========== STUDENT LIST ==========\n";
-
                 for(int i = 0; i < count; i++)
                 {
                     cout << "\nStudent " << i + 1 << endl;
@@ -84,7 +83,7 @@ int main()
                     cout << "Name: " << names[i] << endl;
                     cout << "Department: " << departments[i] << endl;
                     cout << "Semester: " << semesters[i] << endl;
-                    cout << "-----------------------------" << endl;
+                    cout << "-------------------------" << endl;
                 }
             }
         }
@@ -95,7 +94,7 @@ int main()
             int searchID;
             bool found = false;
 
-            cout << "\nEnter Student ID to Search: ";
+            cout << "\nEnter Student ID: ";
             cin >> searchID;
 
             for(int i = 0; i < count; i++)
@@ -122,27 +121,20 @@ int main()
         // Add Teacher
         else if(choice == 4)
         {
-            if(teacherCount < SIZE)
-            {
-                cout << "\nEnter Teacher ID: ";
-                cin >> teacherIds[teacherCount];
+            cout << "\nEnter Teacher ID: ";
+            cin >> teacherIds[teacherCount];
 
-                cin.ignore();
+            cin.ignore();
 
-                cout << "Enter Teacher Name: ";
-                getline(cin, teacherNames[teacherCount]);
+            cout << "Enter Teacher Name: ";
+            getline(cin, teacherNames[teacherCount]);
 
-                cout << "Enter Department: ";
-                getline(cin, teacherDepartments[teacherCount]);
+            cout << "Enter Department: ";
+            getline(cin, teacherDepartments[teacherCount]);
 
-                teacherCount++;
+            teacherCount++;
 
-                cout << "\nTeacher Added Successfully!" << endl;
-            }
-            else
-            {
-                cout << "\nTeacher Storage Full!" << endl;
-            }
+            cout << "\nTeacher Added Successfully!" << endl;
         }
 
         // View Teachers
@@ -154,27 +146,63 @@ int main()
             }
             else
             {
-                cout << "\n========== TEACHER LIST ==========\n";
-
                 for(int i = 0; i < teacherCount; i++)
                 {
                     cout << "\nTeacher " << i + 1 << endl;
                     cout << "ID: " << teacherIds[i] << endl;
                     cout << "Name: " << teacherNames[i] << endl;
                     cout << "Department: " << teacherDepartments[i] << endl;
-                    cout << "-----------------------------" << endl;
+                    cout << "-------------------------" << endl;
+                }
+            }
+        }
+
+        // Add Course
+        else if(choice == 6)
+        {
+            cin.ignore();
+
+            cout << "\nEnter Course Code: ";
+            getline(cin, courseCodes[courseCount]);
+
+            cout << "Enter Course Name: ";
+            getline(cin, courseNames[courseCount]);
+
+            cout << "Enter Credit Hours: ";
+            cin >> creditHours[courseCount];
+
+            courseCount++;
+
+            cout << "\nCourse Added Successfully!" << endl;
+        }
+
+        // View Courses
+        else if(choice == 7)
+        {
+            if(courseCount == 0)
+            {
+                cout << "\nNo Courses Found!" << endl;
+            }
+            else
+            {
+                for(int i = 0; i < courseCount; i++)
+                {
+                    cout << "\nCourse " << i + 1 << endl;
+                    cout << "Code: " << courseCodes[i] << endl;
+                    cout << "Name: " << courseNames[i] << endl;
+                    cout << "Credit Hours: " << creditHours[i] << endl;
+                    cout << "-------------------------" << endl;
                 }
             }
         }
 
         // Exit
-        else if(choice == 6)
+        else if(choice == 8)
         {
             cout << "\nThank You For Using University ERP System!" << endl;
             break;
         }
 
-        // Invalid Choice
         else
         {
             cout << "\nInvalid Choice!" << endl;
