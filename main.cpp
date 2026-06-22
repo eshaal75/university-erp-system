@@ -22,7 +22,8 @@ int main()
         cout << "=================================" << endl;
         cout << "1. Add Student" << endl;
         cout << "2. View Students" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Search Student" << endl;
+        cout << "4. Exit" << endl;
 
         cout << "\nEnter Choice: ";
         cin >> choice;
@@ -49,10 +50,6 @@ int main()
 
                 cout << "\nStudent Added Successfully!" << endl;
             }
-            else
-            {
-                cout << "\nStorage Full!" << endl;
-            }
         }
         else if(choice == 2)
         {
@@ -62,8 +59,6 @@ int main()
             }
             else
             {
-                cout << "\n========== STUDENT LIST ==========\n";
-
                 for(int i = 0; i < count; i++)
                 {
                     cout << "\nStudent " << i + 1 << endl;
@@ -71,11 +66,39 @@ int main()
                     cout << "Name: " << names[i] << endl;
                     cout << "Department: " << departments[i] << endl;
                     cout << "Semester: " << semesters[i] << endl;
-                    cout << "-----------------------------" << endl;
+                    cout << "---------------------" << endl;
                 }
             }
         }
         else if(choice == 3)
+        {
+            int searchID;
+            bool found = false;
+
+            cout << "\nEnter Student ID to Search: ";
+            cin >> searchID;
+
+            for(int i = 0; i < count; i++)
+            {
+                if(ids[i] == searchID)
+                {
+                    cout << "\nStudent Found!" << endl;
+                    cout << "ID: " << ids[i] << endl;
+                    cout << "Name: " << names[i] << endl;
+                    cout << "Department: " << departments[i] << endl;
+                    cout << "Semester: " << semesters[i] << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+            {
+                cout << "\nStudent Not Found!" << endl;
+            }
+        }
+        else if(choice == 4)
         {
             cout << "\nThank You For Using University ERP System!" << endl;
             break;
