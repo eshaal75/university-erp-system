@@ -2,7 +2,7 @@
 
 A console-based University ERP (Enterprise Resource Planning) System developed in C++.
 
-This project is designed to manage basic university operations such as student records, teacher information, course management, attendance, and examination records. The project is being developed incrementally as part of my learning journey in C++ and Object-Oriented Programming.
+This project is designed to manage university operations such as student records, teacher management, course management, attendance, examination records, and fee management. The project is being developed incrementally to strengthen my C++ programming, Object-Oriented Programming, and software development skills.
 
 ---
 
@@ -12,19 +12,28 @@ This project is designed to manage basic university operations such as student r
 
 * Add Student
 * View All Students
+* Search Student by ID
+* Delete Student
 * Store Student ID
 * Store Student Name
 * Store Department
 * Store Semester
-* Search Student by ID
 
 ### Teacher Management
-- Add Teacher
-- View Teachers
 
-- ### Course Management
-- Add Course
-- View Courses
+* Add Teacher
+* View Teachers
+* Store Teacher ID
+* Store Teacher Name
+* Store Department
+
+### Course Management
+
+* Add Course
+* View Courses
+* Store Course Code
+* Store Course Name
+* Store Credit Hours
 
 ---
 
@@ -32,32 +41,45 @@ This project is designed to manage basic university operations such as student r
 
 * C++
 * Object-Oriented Programming (OOP)
+* Structures
 * Arrays
 * Loops
 * Functions
-* File Handling (Planned)
+* Header Files
+* Git & GitHub
 
 ---
 
 ## Project Structure
 
+```text
 UniversityERP/
-
+│
 ├── main.cpp
-
-└── README.md
+├── Student.h
+├── Teacher.h
+├── Course.h
+├── README.md
+└── CHANGELOG.md
+```
 
 ---
 
 ## Current Version
 
-Version 1.0
+### Version 1.3
 
 ### Available Menu
 
 1. Add Student
 2. View Students
-3. Exit
+3. Search Student
+4. Delete Student
+5. Add Teacher
+6. View Teachers
+7. Add Course
+8. View Courses
+9. Exit
 
 ---
 
@@ -65,37 +87,46 @@ Version 1.0
 
 ### Student Management
 
-* Search Student by ID
-* Delete Student
 * Update Student Information
+* Student Registration Number
+* Student Profile Management
 
 ### Teacher Management
 
-* Add Teacher
-* View Teachers
 * Search Teacher
+* Update Teacher Information
+* Assign Courses to Teachers
 
 ### Course Management
 
-* Add Course
-* Assign Courses
-* View Courses
+* Search Course
+* Update Course Details
+* Course Registration
 
 ### Attendance Management
 
 * Mark Attendance
-* Attendance Reports
+* View Attendance Reports
+* Attendance Percentage Calculation
 
 ### Examination Management
 
 * Enter Marks
 * Generate Results
-* Calculate GPA
+* GPA Calculation
+* Transcript Generation
 
 ### Fee Management
 
 * Record Fee Payments
 * Generate Fee Reports
+* Outstanding Fee Tracking
+
+### Data Management
+
+* File Handling
+* Save Records Permanently
+* Load Data Automatically
 
 ---
 
@@ -105,34 +136,48 @@ This project helps me practice:
 
 * C++ Programming
 * Object-Oriented Programming
-* Data Management
+* Data Structures
 * Software Design
 * Git & GitHub
 * Problem Solving
+* Project Development
 
 ---
 
 ## Development Roadmap
 
-### Version 1
+### Version 1.0
 
 * Student Management
 
-### Version 2
+### Version 1.1
 
-* Search and Delete Student
+* Search Student Functionality
+
+### Version 1.2
+
 * Teacher Management
 
-### Version 3
+### Version 1.3
 
 * Course Management
-* Attendance Module
+* Delete Student Functionality
+* Header Files Integration
 
-### Version 4
+### Version 2.0
 
-* Examination and Result Management
+* File Handling
+* Persistent Data Storage
 
-### Version 5
+### Version 3.0
+
+* Attendance System
+
+### Version 4.0
+
+* Examination & Result Management
+
+### Version 5.0
 
 * Complete University ERP System
 
@@ -140,11 +185,16 @@ This project helps me practice:
 
 ## Author
 
-Eshaal Nazir
+**Eshaal Nazir**
 
 Student Developer
 
-Learning C++, Flutter, Artificial Intelligence, and Software Development.
+Currently Learning:
+
+* C++
+* Flutter
+* Artificial Intelligence
+* Software Development
 
 ---
 
