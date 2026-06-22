@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int main()
@@ -7,13 +9,17 @@ int main()
 
     int ids[SIZE];
     string names[SIZE];
-    int count = 0;
+    string departments[SIZE];
+    int semesters[SIZE];
 
+    int count = 0;
     int choice;
 
     while(true)
     {
-        cout << "\n===== UNIVERSITY ERP SYSTEM =====" << endl;
+        cout << "\n=================================" << endl;
+        cout << "     UNIVERSITY ERP SYSTEM" << endl;
+        cout << "=================================" << endl;
         cout << "1. Add Student" << endl;
         cout << "2. View Students" << endl;
         cout << "3. Exit" << endl;
@@ -33,6 +39,12 @@ int main()
                 cout << "Enter Student Name: ";
                 getline(cin, names[count]);
 
+                cout << "Enter Department: ";
+                getline(cin, departments[count]);
+
+                cout << "Enter Semester: ";
+                cin >> semesters[count];
+
                 count++;
 
                 cout << "\nStudent Added Successfully!" << endl;
@@ -46,22 +58,26 @@ int main()
         {
             if(count == 0)
             {
-                cout << "\nNo students found!" << endl;
+                cout << "\nNo Students Found!" << endl;
             }
             else
             {
-                cout << "\n===== STUDENT LIST =====" << endl;
+                cout << "\n========== STUDENT LIST ==========\n";
 
                 for(int i = 0; i < count; i++)
                 {
-                    cout << "ID: " << ids[i]
-                         << " | Name: " << names[i] << endl;
+                    cout << "\nStudent " << i + 1 << endl;
+                    cout << "ID: " << ids[i] << endl;
+                    cout << "Name: " << names[i] << endl;
+                    cout << "Department: " << departments[i] << endl;
+                    cout << "Semester: " << semesters[i] << endl;
+                    cout << "-----------------------------" << endl;
                 }
             }
         }
         else if(choice == 3)
         {
-            cout << "\nExiting..." << endl;
+            cout << "\nThank You For Using University ERP System!" << endl;
             break;
         }
         else
