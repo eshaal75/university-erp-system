@@ -29,11 +29,12 @@ int main()
         cout << "1. Add Student" << endl;
         cout << "2. View Students" << endl;
         cout << "3. Search Student" << endl;
-        cout << "4. Add Teacher" << endl;
-        cout << "5. View Teachers" << endl;
-        cout << "6. Add Course" << endl;
-        cout << "7. View Courses" << endl;
-        cout << "8. Exit" << endl;
+        cout << "4. Delete Student" << endl;
+        cout << "5. Add Teacher" << endl;
+        cout << "6. View Teachers" << endl;
+        cout << "7. Add Course" << endl;
+        cout << "8. View Courses" << endl;
+        cout << "9. Exit" << endl;
 
         cout << "\nEnter Choice: ";
         cin >> choice;
@@ -69,6 +70,8 @@ int main()
             }
             else
             {
+                cout << "\n========== STUDENT LIST ==========\n";
+
                 for(int i = 0; i < studentCount; i++)
                 {
                     cout << "\nStudent " << i + 1 << endl;
@@ -76,7 +79,7 @@ int main()
                     cout << "Name: " << students[i].name << endl;
                     cout << "Department: " << students[i].department << endl;
                     cout << "Semester: " << students[i].semester << endl;
-                    cout << "-------------------------" << endl;
+                    cout << "-----------------------------" << endl;
                 }
             }
         }
@@ -87,7 +90,7 @@ int main()
             int searchID;
             bool found = false;
 
-            cout << "\nEnter Student ID: ";
+            cout << "\nEnter Student ID to Search: ";
             cin >> searchID;
 
             for(int i = 0; i < studentCount; i++)
@@ -111,8 +114,41 @@ int main()
             }
         }
 
-        // Add Teacher
+        // Delete Student
         else if(choice == 4)
+        {
+            int deleteID;
+            bool found = false;
+
+            cout << "\nEnter Student ID to Delete: ";
+            cin >> deleteID;
+
+            for(int i = 0; i < studentCount; i++)
+            {
+                if(students[i].id == deleteID)
+                {
+                    for(int j = i; j < studentCount - 1; j++)
+                    {
+                        students[j] = students[j + 1];
+                    }
+
+                    studentCount--;
+
+                    cout << "\nStudent Deleted Successfully!" << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+            {
+                cout << "\nStudent Not Found!" << endl;
+            }
+        }
+
+        // Add Teacher
+        else if(choice == 5)
         {
             cout << "\nEnter Teacher ID: ";
             cin >> teachers[teacherCount].id;
@@ -131,7 +167,7 @@ int main()
         }
 
         // View Teachers
-        else if(choice == 5)
+        else if(choice == 6)
         {
             if(teacherCount == 0)
             {
@@ -139,19 +175,21 @@ int main()
             }
             else
             {
+                cout << "\n========== TEACHER LIST ==========\n";
+
                 for(int i = 0; i < teacherCount; i++)
                 {
                     cout << "\nTeacher " << i + 1 << endl;
                     cout << "ID: " << teachers[i].id << endl;
                     cout << "Name: " << teachers[i].name << endl;
                     cout << "Department: " << teachers[i].department << endl;
-                    cout << "-------------------------" << endl;
+                    cout << "-----------------------------" << endl;
                 }
             }
         }
 
         // Add Course
-        else if(choice == 6)
+        else if(choice == 7)
         {
             cin.ignore();
 
@@ -170,7 +208,7 @@ int main()
         }
 
         // View Courses
-        else if(choice == 7)
+        else if(choice == 8)
         {
             if(courseCount == 0)
             {
@@ -178,19 +216,21 @@ int main()
             }
             else
             {
+                cout << "\n========== COURSE LIST ==========\n";
+
                 for(int i = 0; i < courseCount; i++)
                 {
                     cout << "\nCourse " << i + 1 << endl;
                     cout << "Code: " << courses[i].code << endl;
                     cout << "Name: " << courses[i].name << endl;
                     cout << "Credit Hours: " << courses[i].creditHours << endl;
-                    cout << "-------------------------" << endl;
+                    cout << "-----------------------------" << endl;
                 }
             }
         }
 
         // Exit
-        else if(choice == 8)
+        else if(choice == 9)
         {
             cout << "\nThank You For Using University ERP System!" << endl;
             break;
