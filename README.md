@@ -18,6 +18,10 @@ This project is designed to manage basic university operations such as student r
 * Store Semester
 * Search Student by ID
 
+### Teacher Management
+- Add Teacher
+- View Teachers
+
 ---
 
 ## Technologies Used
