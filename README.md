@@ -22,6 +22,10 @@ This project is designed to manage basic university operations such as student r
 - Add Teacher
 - View Teachers
 
+- ### Course Management
+- Add Course
+- View Courses
+
 ---
 
 ## Technologies Used
