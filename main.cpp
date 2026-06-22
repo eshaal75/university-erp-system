@@ -1,29 +1,22 @@
 #include <iostream>
 #include <string>
 
+#include "Student.h"
+#include "Teacher.h"
+#include "Course.h"
+
 using namespace std;
 
 int main()
 {
     const int SIZE = 100;
 
-    // Student Data
-    int ids[SIZE];
-    string names[SIZE];
-    string departments[SIZE];
-    int semesters[SIZE];
-    int count = 0;
+    Student students[SIZE];
+    Teacher teachers[SIZE];
+    Course courses[SIZE];
 
-    // Teacher Data
-    int teacherIds[SIZE];
-    string teacherNames[SIZE];
-    string teacherDepartments[SIZE];
+    int studentCount = 0;
     int teacherCount = 0;
-
-    // Course Data
-    string courseCodes[SIZE];
-    string courseNames[SIZE];
-    int creditHours[SIZE];
     int courseCount = 0;
 
     int choice;
@@ -49,20 +42,20 @@ int main()
         if(choice == 1)
         {
             cout << "\nEnter Student ID: ";
-            cin >> ids[count];
+            cin >> students[studentCount].id;
 
             cin.ignore();
 
             cout << "Enter Student Name: ";
-            getline(cin, names[count]);
+            getline(cin, students[studentCount].name);
 
             cout << "Enter Department: ";
-            getline(cin, departments[count]);
+            getline(cin, students[studentCount].department);
 
             cout << "Enter Semester: ";
-            cin >> semesters[count];
+            cin >> students[studentCount].semester;
 
-            count++;
+            studentCount++;
 
             cout << "\nStudent Added Successfully!" << endl;
         }
@@ -70,19 +63,19 @@ int main()
         // View Students
         else if(choice == 2)
         {
-            if(count == 0)
+            if(studentCount == 0)
             {
                 cout << "\nNo Students Found!" << endl;
             }
             else
             {
-                for(int i = 0; i < count; i++)
+                for(int i = 0; i < studentCount; i++)
                 {
                     cout << "\nStudent " << i + 1 << endl;
-                    cout << "ID: " << ids[i] << endl;
-                    cout << "Name: " << names[i] << endl;
-                    cout << "Department: " << departments[i] << endl;
-                    cout << "Semester: " << semesters[i] << endl;
+                    cout << "ID: " << students[i].id << endl;
+                    cout << "Name: " << students[i].name << endl;
+                    cout << "Department: " << students[i].department << endl;
+                    cout << "Semester: " << students[i].semester << endl;
                     cout << "-------------------------" << endl;
                 }
             }
@@ -97,15 +90,15 @@ int main()
             cout << "\nEnter Student ID: ";
             cin >> searchID;
 
-            for(int i = 0; i < count; i++)
+            for(int i = 0; i < studentCount; i++)
             {
-                if(ids[i] == searchID)
+                if(students[i].id == searchID)
                 {
                     cout << "\nStudent Found!" << endl;
-                    cout << "ID: " << ids[i] << endl;
-                    cout << "Name: " << names[i] << endl;
-                    cout << "Department: " << departments[i] << endl;
-                    cout << "Semester: " << semesters[i] << endl;
+                    cout << "ID: " << students[i].id << endl;
+                    cout << "Name: " << students[i].name << endl;
+                    cout << "Department: " << students[i].department << endl;
+                    cout << "Semester: " << students[i].semester << endl;
 
                     found = true;
                     break;
@@ -122,15 +115,15 @@ int main()
         else if(choice == 4)
         {
             cout << "\nEnter Teacher ID: ";
-            cin >> teacherIds[teacherCount];
+            cin >> teachers[teacherCount].id;
 
             cin.ignore();
 
             cout << "Enter Teacher Name: ";
-            getline(cin, teacherNames[teacherCount]);
+            getline(cin, teachers[teacherCount].name);
 
             cout << "Enter Department: ";
-            getline(cin, teacherDepartments[teacherCount]);
+            getline(cin, teachers[teacherCount].department);
 
             teacherCount++;
 
@@ -149,9 +142,9 @@ int main()
                 for(int i = 0; i < teacherCount; i++)
                 {
                     cout << "\nTeacher " << i + 1 << endl;
-                    cout << "ID: " << teacherIds[i] << endl;
-                    cout << "Name: " << teacherNames[i] << endl;
-                    cout << "Department: " << teacherDepartments[i] << endl;
+                    cout << "ID: " << teachers[i].id << endl;
+                    cout << "Name: " << teachers[i].name << endl;
+                    cout << "Department: " << teachers[i].department << endl;
                     cout << "-------------------------" << endl;
                 }
             }
@@ -163,13 +156,13 @@ int main()
             cin.ignore();
 
             cout << "\nEnter Course Code: ";
-            getline(cin, courseCodes[courseCount]);
+            getline(cin, courses[courseCount].code);
 
             cout << "Enter Course Name: ";
-            getline(cin, courseNames[courseCount]);
+            getline(cin, courses[courseCount].name);
 
             cout << "Enter Credit Hours: ";
-            cin >> creditHours[courseCount];
+            cin >> courses[courseCount].creditHours;
 
             courseCount++;
 
@@ -188,9 +181,9 @@ int main()
                 for(int i = 0; i < courseCount; i++)
                 {
                     cout << "\nCourse " << i + 1 << endl;
-                    cout << "Code: " << courseCodes[i] << endl;
-                    cout << "Name: " << courseNames[i] << endl;
-                    cout << "Credit Hours: " << creditHours[i] << endl;
+                    cout << "Code: " << courses[i].code << endl;
+                    cout << "Name: " << courses[i].name << endl;
+                    cout << "Credit Hours: " << courses[i].creditHours << endl;
                     cout << "-------------------------" << endl;
                 }
             }
