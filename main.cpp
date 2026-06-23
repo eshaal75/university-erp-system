@@ -20,7 +20,7 @@ int main()
     Attendance attendanceRecords[SIZE];
     Result results[SIZE];
 
-    int studentCount = 0;
+    int studentCount = loadStudents(students);
     int teacherCount = 0;
     int courseCount = 0;
     int attendanceCount = 0;
