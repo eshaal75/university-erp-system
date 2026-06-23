@@ -41,6 +41,12 @@ This project is designed to manage university operations such as student records
 - View Attendance
 - Calculate Attendance Percentage
 
+### Result Management
+
+- Enter Student Results
+- Calculate Grades
+- Calculate GPA
+- View Results
 ---
 
 ## Technologies Used
