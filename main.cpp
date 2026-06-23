@@ -5,6 +5,7 @@
 #include "Teacher.h"
 #include "Course.h"
 #include "Attendance.h"
+#include "Result.h"
 
 using namespace std;
 
@@ -16,30 +17,35 @@ int main()
     Teacher teachers[SIZE];
     Course courses[SIZE];
     Attendance attendanceRecords[SIZE];
+    Result results[SIZE];
 
     int studentCount = 0;
     int teacherCount = 0;
     int courseCount = 0;
     int attendanceCount = 0;
+    int resultCount = 0;
 
     int choice;
 
     while(true)
     {
-        cout << "\n=================================" << endl;
-        cout << "     UNIVERSITY ERP SYSTEM" << endl;
-        cout << "=================================" << endl;
-        cout << "1. Add Student" << endl;
-        cout << "2. View Students" << endl;
-        cout << "3. Search Student" << endl;
-        cout << "4. Delete Student" << endl;
-        cout << "5. Add Teacher" << endl;
-        cout << "6. View Teachers" << endl;
-        cout << "7. Add Course" << endl;
-        cout << "8. View Courses" << endl;
-        cout << "9. Mark Attendance" << endl;
-        cout << "10. View Attendance" << endl;
-        cout << "11. Exit" << endl;
+        cout << "\n=================================\n";
+        cout << "     UNIVERSITY ERP SYSTEM\n";
+        cout << "=================================\n";
+
+        cout << "1. Add Student\n";
+        cout << "2. View Students\n";
+        cout << "3. Search Student\n";
+        cout << "4. Delete Student\n";
+        cout << "5. Add Teacher\n";
+        cout << "6. View Teachers\n";
+        cout << "7. Add Course\n";
+        cout << "8. View Courses\n";
+        cout << "9. Mark Attendance\n";
+        cout << "10. View Attendance\n";
+        cout << "11. Enter Result\n";
+        cout << "12. View Results\n";
+        cout << "13. Exit\n";
 
         cout << "\nEnter Choice: ";
         cin >> choice;
@@ -63,7 +69,7 @@ int main()
 
             studentCount++;
 
-            cout << "\nStudent Added Successfully!" << endl;
+            cout << "\nStudent Added Successfully!\n";
         }
 
         // View Students
@@ -71,17 +77,17 @@ int main()
         {
             if(studentCount == 0)
             {
-                cout << "\nNo Students Found!" << endl;
+                cout << "\nNo Students Found!\n";
             }
             else
             {
                 for(int i = 0; i < studentCount; i++)
                 {
-                    cout << "\nStudent " << i + 1 << endl;
-                    cout << "ID: " << students[i].id << endl;
-                    cout << "Name: " << students[i].name << endl;
-                    cout << "Department: " << students[i].department << endl;
-                    cout << "Semester: " << students[i].semester << endl;
+                    cout << "\nID: " << students[i].id;
+                    cout << "\nName: " << students[i].name;
+                    cout << "\nDepartment: " << students[i].department;
+                    cout << "\nSemester: " << students[i].semester;
+                    cout << "\n-----------------------------\n";
                 }
             }
         }
@@ -99,8 +105,7 @@ int main()
             {
                 if(students[i].id == searchID)
                 {
-                    cout << "\nStudent Found!" << endl;
-                    cout << "ID: " << students[i].id << endl;
+                    cout << "\nStudent Found!\n";
                     cout << "Name: " << students[i].name << endl;
                     cout << "Department: " << students[i].department << endl;
                     cout << "Semester: " << students[i].semester << endl;
@@ -111,9 +116,7 @@ int main()
             }
 
             if(!found)
-            {
-                cout << "\nStudent Not Found!" << endl;
-            }
+                cout << "\nStudent Not Found!\n";
         }
 
         // Delete Student
@@ -137,15 +140,13 @@ int main()
                     studentCount--;
                     found = true;
 
-                    cout << "\nStudent Deleted Successfully!" << endl;
+                    cout << "\nStudent Deleted Successfully!\n";
                     break;
                 }
             }
 
             if(!found)
-            {
-                cout << "\nStudent Not Found!" << endl;
-            }
+                cout << "\nStudent Not Found!\n";
         }
 
         // Add Teacher
@@ -164,25 +165,18 @@ int main()
 
             teacherCount++;
 
-            cout << "\nTeacher Added Successfully!" << endl;
+            cout << "\nTeacher Added Successfully!\n";
         }
 
         // View Teachers
         else if(choice == 6)
         {
-            if(teacherCount == 0)
+            for(int i = 0; i < teacherCount; i++)
             {
-                cout << "\nNo Teachers Found!" << endl;
-            }
-            else
-            {
-                for(int i = 0; i < teacherCount; i++)
-                {
-                    cout << "\nTeacher " << i + 1 << endl;
-                    cout << "ID: " << teachers[i].id << endl;
-                    cout << "Name: " << teachers[i].name << endl;
-                    cout << "Department: " << teachers[i].department << endl;
-                }
+                cout << "\nID: " << teachers[i].id;
+                cout << "\nName: " << teachers[i].name;
+                cout << "\nDepartment: " << teachers[i].department;
+                cout << "\n-----------------------------\n";
             }
         }
 
@@ -202,25 +196,18 @@ int main()
 
             courseCount++;
 
-            cout << "\nCourse Added Successfully!" << endl;
+            cout << "\nCourse Added Successfully!\n";
         }
 
         // View Courses
         else if(choice == 8)
         {
-            if(courseCount == 0)
+            for(int i = 0; i < courseCount; i++)
             {
-                cout << "\nNo Courses Found!" << endl;
-            }
-            else
-            {
-                for(int i = 0; i < courseCount; i++)
-                {
-                    cout << "\nCourse " << i + 1 << endl;
-                    cout << "Code: " << courses[i].code << endl;
-                    cout << "Name: " << courses[i].name << endl;
-                    cout << "Credit Hours: " << courses[i].creditHours << endl;
-                }
+                cout << "\nCode: " << courses[i].code;
+                cout << "\nName: " << courses[i].name;
+                cout << "\nCredit Hours: " << courses[i].creditHours;
+                cout << "\n-----------------------------\n";
             }
         }
 
@@ -238,49 +225,108 @@ int main()
 
             attendanceCount++;
 
-            cout << "\nAttendance Recorded Successfully!" << endl;
+            cout << "\nAttendance Recorded Successfully!\n";
         }
 
         // View Attendance
         else if(choice == 10)
         {
-            if(attendanceCount == 0)
+            for(int i = 0; i < attendanceCount; i++)
             {
-                cout << "\nNo Attendance Records Found!" << endl;
+                double percentage =
+                (double)attendanceRecords[i].attendedClasses /
+                attendanceRecords[i].totalClasses * 100;
+
+                cout << "\nStudent ID: "
+                     << attendanceRecords[i].studentID;
+
+                cout << "\nAttendance: "
+                     << percentage << "%";
+
+                cout << "\n-----------------------------\n";
+            }
+        }
+
+        // Enter Result
+        else if(choice == 11)
+        {
+            cout << "\nEnter Student ID: ";
+            cin >> results[resultCount].studentID;
+
+            cout << "Enter Marks (0-100): ";
+            cin >> results[resultCount].marks;
+
+            float marks = results[resultCount].marks;
+
+            if(marks >= 85)
+            {
+                results[resultCount].grade = 'A';
+                results[resultCount].gpa = 4.0;
+            }
+            else if(marks >= 70)
+            {
+                results[resultCount].grade = 'B';
+                results[resultCount].gpa = 3.0;
+            }
+            else if(marks >= 60)
+            {
+                results[resultCount].grade = 'C';
+                results[resultCount].gpa = 2.0;
+            }
+            else if(marks >= 50)
+            {
+                results[resultCount].grade = 'D';
+                results[resultCount].gpa = 1.0;
             }
             else
             {
-                for(int i = 0; i < attendanceCount; i++)
+                results[resultCount].grade = 'F';
+                results[resultCount].gpa = 0.0;
+            }
+
+            resultCount++;
+
+            cout << "\nResult Added Successfully!\n";
+        }
+
+        // View Results
+        else if(choice == 12)
+        {
+            if(resultCount == 0)
+            {
+                cout << "\nNo Results Found!\n";
+            }
+            else
+            {
+                for(int i = 0; i < resultCount; i++)
                 {
-                    double percentage =
-                    (double)attendanceRecords[i].attendedClasses /
-                    attendanceRecords[i].totalClasses * 100;
-
                     cout << "\nStudent ID: "
-                         << attendanceRecords[i].studentID << endl;
+                         << results[i].studentID;
 
-                    cout << "Total Classes: "
-                         << attendanceRecords[i].totalClasses << endl;
+                    cout << "\nMarks: "
+                         << results[i].marks;
 
-                    cout << "Attended Classes: "
-                         << attendanceRecords[i].attendedClasses << endl;
+                    cout << "\nGrade: "
+                         << results[i].grade;
 
-                    cout << "Attendance Percentage: "
-                         << percentage << "%" << endl;
+                    cout << "\nGPA: "
+                         << results[i].gpa;
+
+                    cout << "\n-----------------------------\n";
                 }
             }
         }
 
         // Exit
-        else if(choice == 11)
+        else if(choice == 13)
         {
-            cout << "\nThank You For Using University ERP System!" << endl;
+            cout << "\nThank You For Using University ERP System!\n";
             break;
         }
 
         else
         {
-            cout << "\nInvalid Choice!" << endl;
+            cout << "\nInvalid Choice!\n";
         }
     }
 
