@@ -22,3 +22,9 @@
 - File Handling
 - Automatic Record Saving
 - Automatic Record Loading
+- 
+- ## Version 2.0
+
+### Completed
+- Student records saved automatically
+- Student records loaded automatically
