@@ -6,6 +6,7 @@
 #include "Course.h"
 #include "Attendance.h"
 #include "Result.h"
+#include "StudentManager.h"
 
 using namespace std;
 
@@ -68,6 +69,7 @@ int main()
             cin >> students[studentCount].semester;
 
             studentCount++;
+            saveStudent(students[studentCount - 1]);
 
             cout << "\nStudent Added Successfully!\n";
         }
