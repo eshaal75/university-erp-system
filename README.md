@@ -59,6 +59,8 @@ This project is designed to manage university operations such as student records
 * Functions
 * Header Files
 * Git & GitHub
+* - File Handling
+- Text File Storage
 
 ---
 
