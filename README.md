@@ -35,6 +35,12 @@ This project is designed to manage university operations such as student records
 * Store Course Name
 * Store Credit Hours
 
+* ### Attendance Management
+
+- Mark Attendance
+- View Attendance
+- Calculate Attendance Percentage
+
 ---
 
 ## Technologies Used
