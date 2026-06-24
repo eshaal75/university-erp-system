@@ -9,6 +9,7 @@
 #include "StudentManager.h"
 #include "TeacherManager.h"
 #include "CourseManager.h"
+#include "AttendanceManager.h"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ int main()
     int studentCount = loadStudents(students);
   int teacherCount = loadTeachers(teachers);
     int courseCount = loadCourses(courses);
-    int attendanceCount = 0;
+    int attendanceCount = loadAttendance(attendanceRecords);
     int resultCount = 0;
 
     int choice;
@@ -220,82 +221,97 @@ cout << "\nCourse Added Successfully!\n";
         }
 
         // Mark Attendance
-        else if(choice == 9)
+       // Mark Attendance
+else if(choice == 9)
+{
+    cout << "\nEnter Student ID: ";
+    cin >> attendanceRecords[attendanceCount].studentID;
+
+    cout << "Enter Total Classes: ";
+    cin >> attendanceRecords[attendanceCount].totalClasses;
+
+    cout << "Enter Attended Classes: ";
+    cin >> attendanceRecords[attendanceCount].attendedClasses;
+
+    attendanceCount++;
+
+    saveAttendance(attendanceRecords[attendanceCount - 1]);
+
+    cout << "\nAttendance Recorded Successfully!\n";
+}
+
+       // View Attendance
+else if(choice == 10)
+{
+    if(attendanceCount == 0)
+    {
+        cout << "\nNo Attendance Records Found!\n";
+    }
+    else
+    {
+        for(int i = 0; i < attendanceCount; i++)
         {
-            cout << "\nEnter Student ID: ";
-            cin >> attendanceRecords[attendanceCount].studentID;
+            double percentage =
+            (double)attendanceRecords[i].attendedClasses /
+            attendanceRecords[i].totalClasses * 100;
 
-            cout << "Enter Total Classes: ";
-            cin >> attendanceRecords[attendanceCount].totalClasses;
+            cout << "\nStudent ID: "
+                 << attendanceRecords[i].studentID;
 
-            cout << "Enter Attended Classes: ";
-            cin >> attendanceRecords[attendanceCount].attendedClasses;
+            cout << "\nTotal Classes: "
+                 << attendanceRecords[i].totalClasses;
 
-            attendanceCount++;
+            cout << "\nAttended Classes: "
+                 << attendanceRecords[i].attendedClasses;
 
-            cout << "\nAttendance Recorded Successfully!\n";
+            cout << "\nAttendance Percentage: "
+                 << percentage << "%";
+
+            cout << "\n-----------------------------\n";
         }
-
-        // View Attendance
-        else if(choice == 10)
-        {
-            for(int i = 0; i < attendanceCount; i++)
-            {
-                double percentage =
-                (double)attendanceRecords[i].attendedClasses /
-                attendanceRecords[i].totalClasses * 100;
-
-                cout << "\nStudent ID: "
-                     << attendanceRecords[i].studentID;
-
-                cout << "\nAttendance: "
-                     << percentage << "%";
-
-                cout << "\n-----------------------------\n";
-            }
-        }
-
+    }
+}
         // Enter Result
-        else if(choice == 11)
-        {
-            cout << "\nEnter Student ID: ";
-            cin >> results[resultCount].studentID;
+else if(choice == 11)
+{
+    cout << "\nEnter Student ID: ";
+    cin >> results[resultCount].studentID;
 
-            cout << "Enter Marks (0-100): ";
-            cin >> results[resultCount].marks;
+    cout << "Enter Marks (0-100): ";
+    cin >> results[resultCount].marks;
 
-            float marks = results[resultCount].marks;
+    float marks = results[resultCount].marks;
 
-            if(marks >= 85)
-            {
-                results[resultCount].grade = 'A';
-                results[resultCount].gpa = 4.0;
-            }
-            else if(marks >= 70)
-            {
-                results[resultCount].grade = 'B';
-                results[resultCount].gpa = 3.0;
-            }
-            else if(marks >= 60)
-            {
-                results[resultCount].grade = 'C';
-                results[resultCount].gpa = 2.0;
-            }
-            else if(marks >= 50)
-            {
-                results[resultCount].grade = 'D';
-                results[resultCount].gpa = 1.0;
-            }
-            else
-            {
-                results[resultCount].grade = 'F';
-                results[resultCount].gpa = 0.0;
-            }
+    if(marks >= 85)
+    {
+        results[resultCount].grade = 'A';
+        results[resultCount].gpa = 4.0;
+    }
+    else if(marks >= 70)
+    {
+        results[resultCount].grade = 'B';
+        results[resultCount].gpa = 3.0;
+    }
+    else if(marks >= 60)
+    {
+        results[resultCount].grade = 'C';
+        results[resultCount].gpa = 2.0;
+    }
+    else if(marks >= 50)
+    {
+        results[resultCount].grade = 'D';
+        results[resultCount].gpa = 1.0;
+    }
+    else
+    {
+        results[resultCount].grade = 'F';
+        results[resultCount].gpa = 0.0;
+    }
 
-            resultCount++;
+    resultCount++;
 
-            cout << "\nResult Added Successfully!\n";
-        }
+    cout << "\nResult Added Successfully!\n";
+}
 
         // View Results
         else if(choice == 12)
