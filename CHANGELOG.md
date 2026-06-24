@@ -32,3 +32,7 @@
 - ### Teacher Persistence
 - Save teachers automatically
 - Load teachers automatically
+
+- ### Course Persistence
+- Save courses automatically
+- Load courses automatically
