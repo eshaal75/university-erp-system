@@ -8,6 +8,7 @@
 #include "Result.h"
 #include "StudentManager.h"
 #include "TeacherManager.h"
+#include "CourseManager.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int main()
 
     int studentCount = loadStudents(students);
   int teacherCount = loadTeachers(teachers);
-    int courseCount = 0;
+    int courseCount = loadCourses(courses);
     int attendanceCount = 0;
     int resultCount = 0;
 
@@ -201,7 +202,9 @@ cout << "\nTeacher Added Successfully!\n";
 
             courseCount++;
 
-            cout << "\nCourse Added Successfully!\n";
+saveCourse(courses[courseCount - 1]);
+
+cout << "\nCourse Added Successfully!\n";
         }
 
         // View Courses
