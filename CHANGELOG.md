@@ -28,3 +28,7 @@
 ### Completed
 - Student records saved automatically
 - Student records loaded automatically
+
+- ### Teacher Persistence
+- Save teachers automatically
+- Load teachers automatically
