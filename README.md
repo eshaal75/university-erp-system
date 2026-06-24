@@ -211,6 +211,25 @@ Currently Learning:
 * Artificial Intelligence
 * Software Development
 
+
+## Project Status
+
+✅ Completed
+
+This project is a console-based University ERP System developed in C++.
+
+The system supports:
+
+- Student Management
+- Teacher Management
+- Course Management
+- Attendance Management
+- Result & GPA Management
+- Persistent File Storage
+
+All records are automatically saved and loaded using text files.
+
+Version: 2.0
 ---
 
 ## License
