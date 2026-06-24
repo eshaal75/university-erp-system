@@ -10,6 +10,7 @@
 #include "TeacherManager.h"
 #include "CourseManager.h"
 #include "AttendanceManager.h"
+#include "ResultManager.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ int main()
   int teacherCount = loadTeachers(teachers);
     int courseCount = loadCourses(courses);
     int attendanceCount = loadAttendance(attendanceRecords);
-    int resultCount = 0;
+    int resultCount = loadResults(results);
 
     int choice;
 
@@ -310,7 +311,9 @@ else if(choice == 11)
 
     resultCount++;
 
-    cout << "\nResult Added Successfully!\n";
+saveResult(results[resultCount - 1]);
+
+cout << "\nResult Added Successfully!\n";
 }
 
         // View Results
